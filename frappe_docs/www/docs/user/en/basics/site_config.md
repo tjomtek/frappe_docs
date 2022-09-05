@@ -64,8 +64,19 @@ your system settings and Bench CLI's version.
       "serve_default_site": true,
       "socketio_port": 9000,
       "webserver_port": 8000,
-      "root_password": "MARIADB_PASSWORD"
+      "root_password": "MARIADB_PASSWORD",
+      "live_reload": true
+
     }
+
+
+### Optional Settings
+
+| | |
+| ---------------- | ----------- |
+| `workers` |  Allows creating custom workers. The `background_workers` param is optional, if not set the general `background_workers` will be used. Example: `"workers": { "custom_worker1": { "timeout": 5000, "background_workers": 4 } }`. Regenerate config and restart processes to take effect.  |
+
+Apart from this, you can set any keys you wish to be available for all sites.
 
 ## Config Value Precedence
 
@@ -222,6 +233,7 @@ for each bench on your system through the common site configuration.
 | `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. This makes it possible to set the minimum frequency for scheduling jobs. Defaults to 60. |
 | `socketio_port` | Port number for the Socket.IO process defined in the Bench Procfile. |
 | `webserver_port` | Port number for the Frappe web server. |
+| `live_reload` | Automatically reload Desk when assets are rebuilt. |
 
 ### Integrations
 
